@@ -3,7 +3,7 @@ package eurocontrol.nm.quarkus.avro;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.jboss.logging.Logger;
-import dev.kameshs.kafka.quarkus.Movie;
+import eurocontrol.nm.quarkus.avro.Movie;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;

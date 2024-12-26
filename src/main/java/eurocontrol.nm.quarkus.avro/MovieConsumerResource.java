@@ -2,7 +2,7 @@ package eurocontrol.nm.quarkus.avro;
 
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.jboss.resteasy.reactive.RestStreamElementType;
-import dev.kameshs.kafka.quarkus.Movie;
+import eurocontrol.nm.quarkus.avro.Movie;
 import io.smallrye.mutiny.Multi;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.GET;
