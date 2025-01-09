@@ -35,12 +35,12 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+      <artifactId>quarkus-messaging-kafka</artifactId>
     </dependency>
     <dependency>
       <groupId>io.confluent</groupId>
       <artifactId>kafka-avro-serializer</artifactId>
-      <version>7.6.0</version>
+      <version>7.2.0</version>
       <exclusions>
         <exclusion>
           <groupId>jakarta.ws.rs</groupId>
