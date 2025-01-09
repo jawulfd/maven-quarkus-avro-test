@@ -2,11 +2,9 @@
   "namespace": "eurocontrol.nm.quarkus.avro",
   "type": "record",
   "name": "Movie",
-  "doc": "Event containing the movie message.",
   "fields": [
     {
       "name": "title",
-      "doc": "Movie Title",
       "type":{
         "type":"string",
         "avro.java.string":"String"
@@ -14,8 +12,7 @@
     },
     {
       "name": "year",
-      "type": "int",
-      "doc": "Movie year"
+      "type": "int"
     }
   ]
 }
