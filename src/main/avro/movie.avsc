@@ -6,8 +6,11 @@
   "fields": [
     {
       "name": "title",
-      "type": "string",
-      "doc": "Movie Title"
+      "doc": "Movie Title",
+      "type":{
+        "type":"string",
+        "avro.java.string":"String"
+      }
     },
     {
       "name": "year",
