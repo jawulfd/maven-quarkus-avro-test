@@ -1,6 +1,0 @@
-@Library('nm-pipeline-library-eurocontrol@pipeline/nm-common-library-eurocontrol') _
-doMavenPipeline {
-    doGenerateImage = true
-    digitalProduct = "dprod"
-    techStack = "ubi9-jdk17"
-}

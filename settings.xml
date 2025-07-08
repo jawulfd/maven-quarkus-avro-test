@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <pluginGroups>
+    </pluginGroups>
+    <proxies>
+    </proxies>
+    <mirrors>
+        <mirror>
+            <id>releases.group</id>
+            <name>Releases Mirror</name>
+            <url>${env.NM_RELEASES_GROUP_URL}</url>
+            <mirrorOf>*,!snapshots.group,!plugin.snapshots.group</mirrorOf>
+        </mirror>
+        <mirror>
+            <id>snapshots.group</id>
+            <name>Snapshots Mirror</name>
+            <url>${env.NM_SNAPSHOTS_GROUP_URL}</url>
+            <mirrorOf>snapshots.group,plugin.snapshots.group</mirrorOf>
+        </mirror>
+    </mirrors>
+    <servers>
+
+        <server>
+            <id>releases.group</id>
+            <username>${env.ARTIFACTS_REPOSITORY_USER}</username>
+            <password>${env.ARTIFACTS_REPOSITORY_PASSWORD}</password>
+        </server>
+
+        <server>
+            <id>snapshots.group</id>
+            <username>${env.ARTIFACTS_REPOSITORY_USER}</username>
+            <password>${env.ARTIFACTS_REPOSITORY_PASSWORD}</password>
+        </server>
+
+        <server>
+            <id>plugin.releases.group</id>
+            <username>${env.ARTIFACTS_REPOSITORY_USER}</username>
+            <password>${env.ARTIFACTS_REPOSITORY_PASSWORD}</password>
+        </server>
+
+        <server>
+            <id>plugin.snapshots.group</id>
+            <username>${env.ARTIFACTS_REPOSITORY_USER}</username>
+            <password>${env.ARTIFACTS_REPOSITORY_PASSWORD}</password>
+        </server>
+
+        <server>
+            <id>plugin.central.releases</id>
+            <username>${env.ARTIFACTS_REPOSITORY_USER}</username>
+            <password>${env.ARTIFACTS_REPOSITORY_PASSWORD}</password>
+        </server>
+
+        <server>
+            <id>central.releases</id>
+            <username>${env.ARTIFACTS_REPOSITORY_USER}</username>
+            <password>${env.ARTIFACTS_REPOSITORY_PASSWORD}</password>
+        </server>
+
+        <server>
+            <id>distribution.management.releases</id>
+            <username>${env.ARTIFACTS_REPOSITORY_USER}</username>
+            <password>${env.ARTIFACTS_REPOSITORY_PASSWORD}</password>
+        </server>
+        <server>
+            <id>distribution.management.snapshots</id>
+            <username>${env.ARTIFACTS_REPOSITORY_USER}</username>
+            <password>${env.ARTIFACTS_REPOSITORY_PASSWORD}</password>
+        </server>
+        <server>
+            <id>distribution.management.sites</id>
+            <username>${env.ARTIFACTS_REPOSITORY_USER}</username>
+            <password>${env.ARTIFACTS_REPOSITORY_PASSWORD}</password>
+        </server>
+    </servers>
+    <profiles>
+        <profile>
+            <id>root-settings</id>
+            <!-- Repositories -->
+            <repositories>
+                <repository>
+                    <id>releases.group</id>
+                    <name>releases repository</name>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <url>${env.NM_RELEASES_GROUP_URL}</url>
+                </repository>
+                <repository>
+                    <id>snapshots.group</id>
+                    <name>snapshots repository</name>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <url>${env.NM_SNAPSHOTS_GROUP_URL}</url>
+                </repository>
+
+                <repository>
+                    <id>central.releases</id>
+                    <name>central releases repository</name>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <url>${env.NM_CENTRAL_RELEASES_REPOSITORY_URL}</url>
+                </repository>
+            </repositories>
+
+            <!-- Plugin Repository -->
+            <pluginRepositories>
+                <!-- Check the note in the <repositories> section. -->
+                <pluginRepository>
+                    <id>plugin.releases.group</id>
+                    <name>NM Maven Release Plugin Repo</name>
+                    <url>${env.NM_RELEASES_GROUP_URL}</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </pluginRepository>
+
+                <!-- Snapshot Repository -->
+                <pluginRepository>
+                    <id>plugin.snapshots.group</id>
+                    <name>NM Maven Snapshot Plugin Repo</name>
+                    <url>${env.NM_SNAPSHOTS_GROUP_URL}</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                </pluginRepository>
+
+                <pluginRepository>
+                    <id>plugin.central.releases</id>
+                    <name>NM Maven Release Plugin Repo</name>
+                    <url>${env.NM_CENTRAL_RELEASES_REPOSITORY_URL}</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>inm-settings</id>
+            <!-- Properties -->
+            <properties>
+                <nm.releases.group.url>${env.NM_RELEASES_GROUP_URL}</nm.releases.group.url>
+                <nm.snapshots.group.url>${env.NM_SNAPSHOTS_GROUP_URL}</nm.snapshots.group.url>
+                <nm.central.releases.url>${env.NM_CENTRAL_RELEASES_REPOSITORY_URL}</nm.central.releases.url>
+
+                <nm.distribution.releases.url>${env.NM_DISTRIBUTION_RELEASES_REPOSITORY_URL}
+                </nm.distribution.releases.url>
+                <nm.distribution.snapshots.url>${env.NM_DISTRIBUTION_SNAPSHOTS_REPOSITORY_URL}
+                </nm.distribution.snapshots.url>
+                <nm.distribution.sites.url>${env.NM_DISTRIBUTION_SITES_REPOSITORY_URL}</nm.distribution.sites.url>
+            </properties>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>inm-settings</activeProfile>
+        <activeProfile>root-settings</activeProfile>
+    </activeProfiles>
+</settings>
