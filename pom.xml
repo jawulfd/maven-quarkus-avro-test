@@ -33,6 +33,27 @@
     </dependencies>
   </dependencyManagement>
 
+  <!-- Distribution Management -->
+  <distributionManagement>
+      <repository>
+          <id>distribution.management.releases</id>
+          <name>Network Manager (NM) Releases Repository</name>
+          <url>${nm.distribution.releases.url}</url>
+      </repository>
+
+      <snapshotRepository>
+          <id>distribution.management.snapshots</id>
+          <name>Network Manager (NM) Development Repository</name>
+          <url>${nm.distribution.snapshots.url}</url>
+      </snapshotRepository>
+
+      <site>
+          <id>distribution.management.sites</id>
+          <name>Network Manager (NM) Sites Repository</name>
+          <url>${nm.distribution.sites.url}</url>
+      </site>
+  </distributionManagement>
+
   <repositories>
     <repository>
         <id>confluent</id>
